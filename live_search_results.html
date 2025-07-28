@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 2rem; }
+        .container { max-width: 900px; margin: auto; }
+        h1 { text-align: center; margin-bottom: 2rem; }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+        .result-card { background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; text-align: left; transition: transform 0.2s; }
+        .result-card:hover { transform: translateY(-5px); }
+        .result-card img { width: 100%; display: block; }
+        .result-card-info { padding: 1rem; }
+        .result-card-title { font-weight: 600; font-size: 0.9rem; height: 40px; overflow: hidden; margin: 0 0 0.5rem 0; }
+        .result-card-similarity { font-weight: 500; font-size: 1rem; color: #007aff; }
+        a { text-decoration: none; color: inherit; }
+        .search-again { text-align: center; margin-top: 3rem; }
+        .search-again a { background-color: #007aff; color: white; padding: 12px 20px; border-radius: 4px; font-weight: 500; transition: background-color 0.2s; }
+        .search-again a:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"Hidden Gem" Search Results</h1>
+            <div class="results-grid">
+                {% for result in results %}
+                    <a href="{{ result.url }}" target="_blank">
+                        <div class="result-card">
+                            <img src="{{ result.thumbnail }}" alt="Video thumbnail">
+                            <div class="result-card-info">
+                                <p class="result-card-title">{{ result.title }}</p>
+                                <p class="result-card-similarity">Similarity: {{ result.similarity_percent }}</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        <div class="search-again">
+            <a href="/">Search Again</a>
+        </div>
+    </div>
+</body>
+</html>
