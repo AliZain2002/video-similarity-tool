@@ -4,7 +4,7 @@ colorama==0.4.6
 google-api-python-client==2.134.0
 numpy==1.26.4
 opencv-python==4.9.0.80
-Pillow==10.2.0 
+Pillow==10.2.0 --platform manylinux2014_x86_64 --only-binary=:all:
 scikit-learn==1.5.0
 sentence-transformers==3.0.1
 torch==2.3.1
